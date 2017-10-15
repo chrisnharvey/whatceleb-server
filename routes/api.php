@@ -13,4 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('find', 'CelebrityController@findByFace');
+Route::post('find', 'CelebrityController@findByFace');

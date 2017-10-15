@@ -19,6 +19,7 @@ class TokenAuth
             return response()->json([
                 'error' => 'An internal server error occurred'
             ], 500);
+        }
 
         if ($request->header('X-WhatCeleb-Auth') != env('API_TOKEN')) {
             return response()->json([

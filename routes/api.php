@@ -13,4 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('detect', 'FaceRecognitionController@recognize');
+Route::get('find', 'CelebrityController@findByFace');

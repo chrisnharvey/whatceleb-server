@@ -34,7 +34,7 @@ class CelebrityController extends Controller
 
         $faces = $this->rekognition->recognizeCelebrities([
             'Image' => [
-                'Bytes' => file_get_contents($request->image->path())
+                'Bytes' => file_get_contents($request->photo->path())
             ]
         ]);
 

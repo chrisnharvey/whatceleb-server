@@ -38,17 +38,13 @@ class CelebrityController extends Controller
             ]
         ]);
 
-        $celeb = [];
+        $profile = [];
         
         foreach ($faces['CelebrityFaces'] as $celeb) {
-            $celeb = [
-                'name' => $celeb['Name']
-            ];
-
             foreach ($celeb['Urls'] as $url) {
                 if (str_contains($url, 'imdb.com/name')) {
 
-                    $celeb = [
+                    $profile = [
                         'name' => $celeb['Name'],
                         'imdb_id' => str_after($url, 'imdb.com/name/')
                     ];
@@ -59,12 +55,12 @@ class CelebrityController extends Controller
             }
         }
 
-        if (empty($celeb)) {
+        if (empty($profile)) {
             return response()->json([
                 'error' => "Sorry, not sure who that is."
             ], 404);
         }
 
-        return compact('celeb');
+        return compact('profile');
     }
 }

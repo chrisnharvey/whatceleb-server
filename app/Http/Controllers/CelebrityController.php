@@ -20,6 +20,12 @@ class CelebrityController extends Controller
     }
     public function findByFace(Request $request)
     {
+        if ( ! $request->hasFile('photo')) {
+            return response()->json([
+                'error' => 'No photo uploaded'
+            ], 400);
+        }
+
         if ( ! $request->file('photo')->isValid()) {
             return response()->json([
                 'error' => 'Invalid photo uploaded'

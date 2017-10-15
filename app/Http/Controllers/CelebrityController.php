@@ -115,7 +115,8 @@ class CelebrityController extends Controller
     {
         return [
             'title' => $movie->getTitle(),
-            'poster' => $this->getImage($movie->getPosterPath(), 'w185')
+            'poster' => $this->getImage($movie->getPosterPath(), 'w185'),
+            'year' => $movie->getReleaseDate()->format('Y')
         ];
     }
 }

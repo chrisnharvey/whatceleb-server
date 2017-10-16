@@ -97,12 +97,19 @@ class CelebrityController extends Controller
             $knownFor[] = $this->createMovieArray($movie);
         }
 
+        $images = [];
+
+        foreach ($person->getImages() as $image) {
+            $images[] = $this->getImage($image, 'w185');
+        }
+
         $profile = array_merge($profile, [
             'birth' => $person->getBirthday() ? $person->getBirthday()->format('jS M Y') : null,
             'death' => $person->getDeathday() ? $person->getDeatday()->format('jS M Y') : null,
             'profile_image' => $this->getImage($person->getProfileImage(), 'h632'),
             'bio' => $person->getBiography(),
-            'known_for' => $knownFor,            
+            'known_for' => $knownFor,
+            'images' => $images    
         ]);
 
         return compact('profile');

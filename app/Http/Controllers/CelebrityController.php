@@ -60,7 +60,8 @@ class CelebrityController extends Controller
 
                     $profile = [
                         'name' => $celeb['Name'],
-                        'imdb_id' => str_after($url, 'imdb.com/name/')
+                        'imdb_id' => str_after($url, 'imdb.com/name/'),
+                        'imdb_url' => "https://{$url}"
                     ];
 
                     break 2; // Just get the first celeb with an IMDb ID ,we'll add support for multiple celebs later

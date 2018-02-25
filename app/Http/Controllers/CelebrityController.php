@@ -124,6 +124,7 @@ class CelebrityController extends Controller
     protected function createMovieArray($movie)
     {
         return [
+            'imdb_id' => $movie->getId(),
             'title' => $movie->getTitle(),
             'poster' => $this->getImage($movie->getPosterPath(), 'w185'),
             'year' => $movie->getReleaseDate()->format('Y')
